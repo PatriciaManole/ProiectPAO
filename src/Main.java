@@ -160,7 +160,9 @@ public class Main {
                                     String adresa = s.nextLine();
                                     System.out.println("Tip client:");
                                     String tipClient = s.nextLine();
-                                    ClientService.adaugaClient(nume,prenume,email,nrTelefon,adresa, tipClient);
+                                    System.out.println("Id legitimatie:");
+                                    Integer legitimatie = Integer.parseInt(s.nextLine());
+                                    clientService.adaugaClient(nume,prenume,email,nrTelefon,adresa, tipClient,legitimatie);
                                 }
                                 catch (Exception e) {
                                     System.out.println("Eroare: " + e.getMessage());
@@ -254,7 +256,7 @@ public class Main {
                             case 8:
                                 try {
                                     System.out.println("-------------------------");
-                                    for(Client client : ClientService.getClienti()){
+                                    for(Client client : clientService.getClienti()){
                                         client.afisare();
                                         Thread.sleep(2000);
                                     }

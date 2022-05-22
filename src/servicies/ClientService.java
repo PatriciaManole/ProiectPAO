@@ -19,8 +19,8 @@ public class ClientService {
         }
     }
 
-    public static void adaugaClient(String prenume, String nume, String email, String nrTelefon, String adresa, String tipClient){
-        Client ClientNou = new Client(nume,prenume,email,nrTelefon,adresa,tipClient);
+    public static void adaugaClient(String prenume, String nume, String email, String nrTelefon, String adresa, String tipClient,Integer legitimatie){
+        Client ClientNou = new Client(nume,prenume,email,nrTelefon,adresa,tipClient,legitimatie);
         clienti.add(ClientNou);
         clientCSV.add(clientCSVPath, ClientNou);
     }

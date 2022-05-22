@@ -24,7 +24,7 @@ public class ClientCSV  implements  TamplateCSV<Client> {
             String line = csvReader.readLine();
             while (line != null) {
                 String[] data = line.split(",");
-                Client client = new Client(data[0], data[1], data[2], data[3], data[4], data[5]);
+                Client client = new Client(data[0], data[1], data[2], data[3], data[4], data[5],Integer.parseInt(data[6]));
                 clienti.add(client);
                 line = csvReader.readLine();
             }

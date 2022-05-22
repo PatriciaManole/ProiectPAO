@@ -22,13 +22,13 @@ public class Bibliotecar extends Persoana{
         System.out.print(this.getNume());
         System.out.print(" ");
         System.out.print(this.getPrenume());
-        System.out.print(" Email: ");
+        System.out.println(" Email: ");
         System.out.print(this.getEmail());
-        System.out.print(" Numar de telefon: ");
+        System.out.println(" Numar de telefon: ");
         System.out.print(this.getNrTelefon());
-        System.out.print(" Adresa: ");
+        System.out.println(" Adresa: ");
         System.out.print(this.getAdresa());
-        System.out.print(" Data angajare: ");
+        System.out.println(" Data angajare: ");
         System.out.print(this.getDataAngajare());
         System.out.print(".");
     }

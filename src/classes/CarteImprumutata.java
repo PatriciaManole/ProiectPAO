@@ -1,6 +1,7 @@
 package classes;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CarteImprumutata implements Comparable<CarteImprumutata>{
     private Boolean status; // true daca cartea a fost returnata false altfel
@@ -14,8 +15,17 @@ public class CarteImprumutata implements Comparable<CarteImprumutata>{
         this.client = client;
         this.carte = carte;
         this.dataImprumutare = dataImprumutare;
-        this.dataReturnare = null;
+        this.dataReturnare = dataImprumutare;
     }
+    public CarteImprumutata(Boolean status,Client client, Carte carte, LocalDateTime dataImprumutare, LocalDateTime dataReturnare){
+        this.status = status;
+        this.client = client;
+        this.carte = carte;
+        this.dataImprumutare = dataImprumutare;
+        this.dataReturnare = dataReturnare;
+    }
+
+
 
     public Boolean getStatus() {
         return status;
@@ -59,7 +69,7 @@ public class CarteImprumutata implements Comparable<CarteImprumutata>{
 
 
     public int compareTo(CarteImprumutata other) {
-        return this.carte.getTitlu().compareTo(other.carte.getTitlu());
+        return this.dataImprumutare.compareTo(other.getDataImprumutare());
     }
 
     public void returnare(LocalDateTime dataReturnare){
@@ -75,12 +85,14 @@ public class CarteImprumutata implements Comparable<CarteImprumutata>{
         System.out.print(" ");
         System.out.print(this.client.getPrenume());
         System.out.print(" la data de ");
-        System.out.print(this.dataImprumutare);
-        System.out.print(".");
+        System.out.print(this.dataImprumutare.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+        System.out.print(".\n");
     }
 
     @Override
     public String toString() {
-        return String.format("%s", getStatus()) + "," + client.toString()+ "," + carte.toString()+ "," + String.format("%s", getDataImprumutare()) + "," + String.format("%s", getDataReturnare());
+        return  String.format("%s,%s,%s",getStatus(),getClient().getLegitimatie(),getCarte().getTitlu()) +  "," + String.format("%s,%s", getDataImprumutare(),getDataReturnare()) ;
     }
 }
+
+

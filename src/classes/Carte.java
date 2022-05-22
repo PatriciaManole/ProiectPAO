@@ -58,18 +58,18 @@ public class Carte {
 
     public void afisare(){
         System.out.print("Titlu: ");
-        System.out.print(this.getTitlu());
-        System.out.print(" Autor: ");
+        System.out.println(this.getTitlu());
+        System.out.print("Autor: ");
         System.out.print(this.getAutor().getNume());
         System.out.print(" ");
-        System.out.print(this.getAutor().getPrenume());
-        System.out.print(" Editura: ");
-        System.out.print(this.getEditura().getNume());
-        System.out.print(" ISBN: ");
-        System.out.print(this.getIsbn());
-        System.out.print(" Categorie: ");
-        System.out.print(this.getCategorie().getNume());
-        System.out.print(".");
+        System.out.println(this.getAutor().getPrenume());
+        System.out.print("Editura: ");
+        System.out.println(this.getEditura().getNume());
+        System.out.print("ISBN: ");
+        System.out.println(this.getIsbn());
+        System.out.print("Categorie: ");
+        System.out.println(this.getCategorie().getNume());
+        System.out.println();
     }
 
     @Override

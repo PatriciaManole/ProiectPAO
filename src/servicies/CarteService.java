@@ -2,7 +2,9 @@ package servicies;
 
 import classes.*;
 import csv.CarteCSV;
+import csv.CarteImprumutataCSV;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.NavigableSet;
@@ -11,12 +13,15 @@ import java.util.TreeSet;
 public class CarteService {
     private static ArrayList<Carte> carti = new ArrayList<>();
     private static NavigableSet<CarteImprumutata> cartiImprumutate = new TreeSet<>();
+
     private static final CarteCSV carteCSV = CarteCSV.getInstance();
     private static final String carteCSVPath = "files/carti.csv";
-
+    private static final CarteImprumutataCSV carteImprumutataCSV = CarteImprumutataCSV.getInstance();
+    private static final String carteImprumutataCSVPath = "files/cartiImprumutate.csv";
     public CarteService() {
         try {
             carti.addAll(carteCSV.load(carteCSVPath));
+            cartiImprumutate.addAll(carteImprumutataCSV.load(carteImprumutataCSVPath));
         }
         catch (Exception e){
             e.printStackTrace();
@@ -84,20 +89,23 @@ public class CarteService {
             CarteImprumutata carteNoua= new CarteImprumutata(client,carte,LocalDateTime.now());
             cartiImprumutate.add(carteNoua);
             System.out.print(cartiImprumutate);
+            carteImprumutataCSV.add(carteImprumutataCSVPath,carteNoua);
         }
     }
 
-    public static void returnareCarte(Integer legitimatieClient, String titluCarte){
+    public static void returnareCarte(Integer legitimatieClient, String titluCarte) throws IOException {
         CarteImprumutata carteImprumutata = null;
         for (CarteImprumutata carte : cartiImprumutate)
         {
             if(carte.getClient().getLegitimatie().equals(legitimatieClient) &&
                         carte.getCarte().getTitlu().equals(titluCarte)){
                 carteImprumutata = carte;}
+
         }
 
         if(carteImprumutata != null){
             carteImprumutata.returnare(LocalDateTime.now());
+            carteImprumutataCSV.edit(carteImprumutataCSVPath,carteImprumutata);
         }
 
     }
