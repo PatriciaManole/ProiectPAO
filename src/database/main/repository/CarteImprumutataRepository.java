@@ -72,6 +72,12 @@ public class CarteImprumutataRepository {
         statement.setString(2, carteImprumutata.getCarte().getTitlu());
         statement.setInt(3, carteImprumutata.getClient().getLegitimatie());
         statement.executeUpdate();
+        String query2 = "update carteimprumutata set status = true where Titlucarte = ? and LegitimatieClient = ?";
+
+        PreparedStatement statement2 = DbConnection.getInstance().prepareStatement(query2);
+        statement2.setString(1, carteImprumutata.getCarte().getTitlu());
+        statement2.setInt(2, carteImprumutata.getClient().getLegitimatie());
+        statement2.executeUpdate();
 
     }
 }
