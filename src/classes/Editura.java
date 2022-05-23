@@ -1,5 +1,8 @@
 package classes;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Editura {
     private String nume;
     private String adresa;
@@ -7,6 +10,11 @@ public class Editura {
     public Editura(String nume, String adresa) {
         this.nume = nume;
         this.adresa = adresa;
+    }
+
+    public Editura(ResultSet result) throws SQLException {
+        this.nume=result.getString("Nume");
+        this.adresa=result.getString("Adresa");
     }
 
     public String getNume() {

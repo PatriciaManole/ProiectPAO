@@ -1,5 +1,8 @@
 package classes;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Persoana {
 
     private String nume;
@@ -14,6 +17,14 @@ public class Persoana {
         this.email = email;
         this.nrTelefon = nrTelefon;
         this.adresa = adresa;
+    }
+
+    public Persoana(ResultSet result) throws SQLException {
+        this.nume = result.getString("Nume");
+        this.prenume = result.getString("Prenume");
+        this.email = result.getString("Email");
+        this.nrTelefon = result.getString("NumarTelefon");
+        this.adresa = result.getString("Adresa");
     }
 
 

@@ -6,7 +6,7 @@ import csv.AutorCSV;
 import java.util.ArrayList;
 
 public class AutorService {
-    private static ArrayList<Autor> autori = new ArrayList<Autor>();
+    private static ArrayList<Autor> autori = new ArrayList<>();
     private static final AutorCSV autorCSV = AutorCSV.getInstance();
     private static final String autorCSVPath = "files/autori.csv";
 

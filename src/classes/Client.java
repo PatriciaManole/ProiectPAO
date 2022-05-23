@@ -1,5 +1,8 @@
 package classes;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Client extends Persoana{
     private final int legitimatie;
     private TipClient tipClient;
@@ -9,6 +12,12 @@ public class Client extends Persoana{
         super(nume, prenume, email, nrTelefon, adresa);
         this.tipClient = TipClient.valueOf(tipClient);
         this.legitimatie = legitimatie;
+    }
+
+    public Client(ResultSet result) throws SQLException {
+        super(result);
+        this.legitimatie=result.getInt("Legitimatie");
+        this.tipClient=TipClient.valueOf(result.getString("TipClient"));
     }
 
 

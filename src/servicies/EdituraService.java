@@ -6,7 +6,7 @@ import csv.EdituraCSV;
 import java.util.ArrayList;
 
 public class EdituraService {
-    private static ArrayList<Editura> edituri = new ArrayList<Editura>();
+    private static ArrayList<Editura> edituri = new ArrayList<>();
     private static final EdituraCSV edituraCSV = EdituraCSV.getInstance();
     private static final String edituraCSVPath = "files/edituri.csv";
 

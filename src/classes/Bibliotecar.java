@@ -1,5 +1,8 @@
 package classes;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Bibliotecar extends Persoana{
     private String dataAngajare;
 
@@ -7,6 +10,10 @@ public class Bibliotecar extends Persoana{
         super(nume, prenume, email, nrTelefon, adresa);
         this.dataAngajare=dataAngajare;
 
+    }
+    public Bibliotecar(ResultSet result) throws SQLException {
+        super(result);
+        this.dataAngajare = result.getString("DataAngajare");
     }
 
     public String getDataAngajare() {

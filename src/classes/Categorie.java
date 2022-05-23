@@ -1,6 +1,9 @@
 package classes;
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Categorie {
     private String nume;
     private Integer etaj;
@@ -10,6 +13,12 @@ public class Categorie {
         this.nume = nume;
         this.etaj = etaj;
         this.raft = raft;
+    }
+
+    public Categorie(ResultSet result) throws SQLException {
+        this.nume=result.getString("Nume");
+        this.etaj=result.getInt("Etaj");
+        this.raft=result.getInt("Raft");
     }
 
     public String getNume() {

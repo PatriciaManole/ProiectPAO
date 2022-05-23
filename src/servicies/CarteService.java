@@ -88,7 +88,6 @@ public class CarteService {
         if(carte != null && client != null){
             CarteImprumutata carteNoua= new CarteImprumutata(client,carte,LocalDateTime.now());
             cartiImprumutate.add(carteNoua);
-            System.out.print(cartiImprumutate);
             carteImprumutataCSV.add(carteImprumutataCSVPath,carteNoua);
         }
     }

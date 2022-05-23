@@ -1,5 +1,8 @@
 package classes;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Autor {
     private String nume;
     private String prenume;
@@ -9,6 +12,11 @@ public class Autor {
         this.nume=nume;
         this.prenume=prenume;
         this.tara=tara;
+    }
+    public Autor(ResultSet result) throws SQLException {
+        this.nume=result.getString("Nume");
+        this.prenume=result.getString("Prenume");
+        this.tara=result.getString("Tara");
     }
 
     public String getNume() {
