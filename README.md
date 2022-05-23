@@ -10,7 +10,7 @@ Un Admin poate sa:
 Un Client poate sa:
 1. Afiseaza carti din biblioteca 
 2. Afiseaza carti imprumutate
-3. 3. Afiseaza carti nereturnate
+3. Afiseaza carti nereturnate
 
 Un Bibliotecar poate sa:
  1. Adauga client
@@ -31,12 +31,12 @@ Un Bibliotecar poate sa:
 
 Tipuri de obiecte:
 
-Autor
-Editura
-Categorie
-Carte
-Persoana
-Bibliotecar
-Client
-CarteImprumutata
-TipClient
+1. Autor
+2. Editura
+3. Categorie
+4. Carte
+5. Persoana
+6. Bibliotecar
+7. Client
+8. CarteImprumutata
+9. TipClient
